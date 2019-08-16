@@ -223,6 +223,8 @@ public class MainVerticle extends AbstractVerticle {
 				
 				MessageProducer<JsonObject> producer = bridge.createProducer(next);
 				producer.send(new JsonObject().put("body", nextctx));
+				producer.end();
+
 				System.out.println("Consumer " + consumer + " send to [" + next + "] result [" + nextctx.encode() + "]");
 			}
 		}
@@ -260,6 +262,8 @@ public class MainVerticle extends AbstractVerticle {
 						
 						MessageProducer<JsonObject> producer = bridge.createProducer(nextTask);
 						producer.send(new JsonObject().put("body", nextctx));
+						producer.end();
+
 						System.out.println("Consumer " + consumer + " send to [" + nextTask + "] result [" + nextctx.encode() + "]");
 					} else {
 						System.out.println("Xunfei yun access error with " + response.statusCode() + " " + response.statusMessage());
@@ -284,6 +288,8 @@ public class MainVerticle extends AbstractVerticle {
 						
 						MessageProducer<JsonObject> producer = bridge.createProducer(nextTask);
 						producer.send(new JsonObject().put("body", nextctx));
+						producer.end();
+
 						System.out.println("Consumer " + consumer + " send to [" + nextTask + "] result [" + nextctx.encode() + "]");
 					} else {
 						iat(consumer, deviceId, userId, context, body, paramBase64, curTime, checkSum, nextTask, retry + 1);
@@ -310,6 +316,8 @@ public class MainVerticle extends AbstractVerticle {
 				
 				MessageProducer<JsonObject> producer = bridge.createProducer(nextTask);
 				producer.send(new JsonObject().put("body", nextctx));
+				producer.end();
+
 				System.out.println("Consumer " + consumer + " send to [" + nextTask + "] result [" + nextctx.encode() + "]");
 			} else {
 				iat(consumer, deviceId, userId, context, body, paramBase64, curTime, checkSum, nextTask, retry + 1);
@@ -348,6 +356,8 @@ public class MainVerticle extends AbstractVerticle {
 						
 						MessageProducer<JsonObject> producer = bridge.createProducer(nextTask);
 						producer.send(new JsonObject().put("body", nextctx));
+						producer.end();
+
 						System.out.println("Consumer " + consumer + " send to [" + nextTask + "] result [" + nextctx.encode() + "]");
 					} else {
 						System.out.println("Xunfei yun access error with " + response.statusCode() + " " + response.statusMessage());
